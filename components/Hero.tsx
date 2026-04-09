@@ -49,10 +49,10 @@ export default function Hero({ hero: initialHero }: HeroProps) {
   // Centered with video layout
   if (layout === 'Centered with video') {
     return (
-      <section className="w-full bg-ph-dark py-16 md:py-24">
+      <section className="w-full bg-white py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-ph-dark mb-6"
             {...inspectorProps({ fieldId: 'title' })}
           >
             {title}
@@ -60,7 +60,7 @@ export default function Hero({ hero: initialHero }: HeroProps) {
           
           {subtitle && (
             <p 
-              className="text-lg md:text-xl text-ph-light/90 mb-8 max-w-2xl mx-auto whitespace-pre-line"
+              className="text-lg md:text-xl text-ph-slate mb-8 max-w-2xl mx-auto whitespace-pre-line"
               {...inspectorProps({ fieldId: 'subtitle' })}
             >
               {subtitle}
@@ -72,7 +72,7 @@ export default function Hero({ hero: initialHero }: HeroProps) {
             {ctaText && ctaLink && (
               <a
                 href={ctaLink}
-                className="inline-block bg-ph-red hover:bg-ph-red-light text-white px-5 py-2 rounded-md text-sm font-semibold transition-colors"
+                className="inline-block bg-ph-red hover:bg-ph-red-dark text-white px-5 py-2 rounded-md text-sm font-semibold transition-colors"
                 {...inspectorProps({ fieldId: 'ctaText' })}
               >
                 {ctaText}
@@ -81,7 +81,7 @@ export default function Hero({ hero: initialHero }: HeroProps) {
             {secondaryCtaText && secondaryCtaLink && (
               <a
                 href={secondaryCtaLink}
-                className="inline-block border border-ph-light/50 hover:border-ph-yellow text-ph-light hover:text-ph-yellow px-5 py-2 rounded-md text-sm font-semibold transition-colors"
+                className="inline-block border border-gray-300 hover:border-ph-red text-ph-dark hover:text-ph-red px-5 py-2 rounded-md text-sm font-semibold transition-colors"
                 {...inspectorProps({ fieldId: 'secondaryCtaText' })}
               >
                 {secondaryCtaText}
@@ -92,7 +92,7 @@ export default function Hero({ hero: initialHero }: HeroProps) {
           {/* Video Section */}
           {(embedUrl || videoAssetUrl) && (
             <div 
-              className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl border border-ph-slate/30"
+              className="relative w-full aspect-video rounded-lg overflow-hidden shadow-xl border border-gray-200"
               {...inspectorProps({ fieldId: videoUrl ? 'videoUrl' : 'video' })}
             >
               {embedUrl ? (

@@ -11,8 +11,8 @@
 }
 
 body {
-  color: var(--ph-light);
-  background-color: var(--ph-dark);
+  color: var(--ph-dark);
+  background-color: #ffffff;
 }
 
 /* Ninetailed personalization transitions */

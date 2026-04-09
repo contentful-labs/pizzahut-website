@@ -14,15 +14,15 @@ export default function SolutionsList({ solutionsList: initialData }: SolutionsL
   const { title, subtitle, items } = solutionsList.fields;
 
   return (
-    <section className="py-16 md:py-24 bg-ph-red-dark">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12" {...inspectorProps({ fieldId: 'title' })}>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-ph-dark mb-4">
             {title}
           </h2>
           {subtitle && (
             <p 
-              className="text-lg text-ph-light/80 max-w-3xl mx-auto"
+              className="text-lg text-ph-slate max-w-3xl mx-auto"
               {...inspectorProps({ fieldId: 'subtitle' })}
             >
               {subtitle}
@@ -37,11 +37,11 @@ export default function SolutionsList({ solutionsList: initialData }: SolutionsL
           {items?.map((item, index) => (
             <div 
               key={item.sys.id}
-              className="bg-ph-dark/50 border border-ph-slate/30 rounded-lg p-6 hover:border-ph-yellow/50 transition-colors"
+              className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
             >
               <div className="flex items-start gap-4">
                 {item.fields.number && (
-                  <span className="text-4xl font-bold text-ph-yellow/60">
+                  <span className="text-4xl font-bold text-ph-red/60">
                     {item.fields.number}
                   </span>
                 )}
@@ -53,11 +53,11 @@ export default function SolutionsList({ solutionsList: initialData }: SolutionsL
                       className="w-12 h-12 mb-4 object-contain"
                     />
                   )}
-                  <h3 className="text-xl font-semibold text-white mb-2">
+                  <h3 className="text-xl font-semibold text-ph-dark mb-2">
                     {item.fields.title}
                   </h3>
                   {item.fields.description && (
-                    <p className="text-ph-light/70">
+                    <p className="text-ph-slate">
                       {item.fields.description}
                     </p>
                   )}

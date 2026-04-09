@@ -76,7 +76,7 @@ export default function DuplexContainer({ duplexContainer: initialDuplexContaine
   );
 
   return (
-    <section className="w-full min-h-[400px] md:min-h-[500px] flex flex-col md:flex-row bg-ph-dark">
+    <section className="w-full min-h-[400px] md:min-h-[500px] flex flex-col md:flex-row bg-white">
       {isImageLeft ? (
         <>
           {ImageSection}

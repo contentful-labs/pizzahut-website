@@ -16,11 +16,11 @@ export default function FeaturedNews({ featuredNews: initialFeaturedNews }: Feat
   const { title, items } = featuredNews.fields;
 
   return (
-    <section className="py-20 px-4 bg-ph-slate/30">
+    <section className="py-20 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {title && (
           <h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-12 text-center"
+            className="text-4xl md:text-5xl font-bold text-ph-dark mb-12 text-center"
             {...inspectorProps({ fieldId: 'title' })}
           >
             {title}
@@ -31,7 +31,7 @@ export default function FeaturedNews({ featuredNews: initialFeaturedNews }: Feat
             const imageUrl = `https:${item.fields.image.fields.file.url}`;
 
             const content = (
-              <div className="bg-ph-red-dark rounded-lg overflow-hidden border border-ph-slate/30 hover:border-ph-yellow/50 transition-colors h-full flex flex-col">
+              <div className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow h-full flex flex-col">
                 <div className="relative h-48 flex-shrink-0">
                   <Image
                     src={imageUrl}
@@ -41,10 +41,10 @@ export default function FeaturedNews({ featuredNews: initialFeaturedNews }: Feat
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-xl font-bold text-ph-dark mb-3">
                     {item.fields.title}
                   </h3>
-                  <p className="text-ph-light/70 whitespace-pre-line flex-grow">
+                  <p className="text-ph-slate whitespace-pre-line flex-grow">
                     {item.fields.body}
                   </p>
                 </div>
