@@ -8,6 +8,7 @@ import {
 import { NinetailedPreviewPlugin } from '@ninetailed/experience.js-plugin-preview';
 import { NinetailedInsightsPlugin } from '@ninetailed/experience.js-plugin-insights';
 import { ContentfulLivePreviewProvider } from '@contentful/live-preview/react';
+import { Analytics } from '@vercel/analytics/next';
 
 type AppProps<P = unknown> = {
   pageProps: P;
@@ -78,6 +79,7 @@ const App = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
     >
       <ContentfulLivePreviewProvider locale="en-US">
         <Component {...pageProps} />
+        <Analytics />
       </ContentfulLivePreviewProvider>
     </NinetailedProvider>
   );

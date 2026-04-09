@@ -19,6 +19,7 @@
     "@ninetailed/experience.js-plugin-insights": "7.10.0",
     "@ninetailed/experience.js-plugin-preview": "7.10.0",
     "@ninetailed/experience.js-utils-contentful": "7.10.0",
+    "@vercel/analytics": "^2.0.1",
     "contentful": "^10.12.0",
     "contentful-management": "^10.12.0",
     "lodash": "^4.17.21",
