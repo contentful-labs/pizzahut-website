@@ -1,0 +1,61 @@
+import { getContentfulClient } from './contentful';
+import {
+  ExperienceMapper,
+  AudienceMapper,
+  ExperienceEntryLike,
+  AudienceEntryLike,
+} from '@ninetailed/experience.js-utils-contentful';
+
+export { ExperienceMapper } from '@ninetailed/experience.js-utils-contentful';
+
+/**
+ * Fetch all Ninetailed experiences from Contentful (for preview widget)
+ */
+export async function getAllExperiences(preview: boolean = false) {
+  const client = getContentfulClient(preview);
+
+  const entries = await client.getEntries({
+    content_type: 'nt_experience',
+    include: 3,
+  });
+
+  const experiences = entries.items as ExperienceEntryLike[];
+
+  const mappedExperiences = (experiences || [])
+    .filter((entry) => ExperienceMapper.isExperienceEntry(entry))
+    .map((entry) => ExperienceMapper.mapExperience(entry));
+
+  return mappedExperiences;
+}
+
+/**
+ * Fetch all Ninetailed audiences from Contentful (for preview widget)
+ * Returns mapped audiences and a lookup from nt_audience_id to Contentful entry sys.id
+ */
+export async function getAllAudiences(preview: boolean = false) {
+  const client = getContentfulClient(preview);
+
+  const entries = await client.getEntries({
+    content_type: 'nt_audience',
+    include: 0,
+  });
+
+  const audiences = entries.items as AudienceEntryLike[];
+
+  const validAudiences = (audiences || []).filter((entry) =>
+    AudienceMapper.isAudienceEntry(entry)
+  );
+
+  const mappedAudiences = validAudiences.map((entry) =>
+    AudienceMapper.mapAudience(entry)
+  );
+
+  const audienceEntryIdMap: Record<string, string> = {};
+  validAudiences.forEach((entry: any) => {
+    if (entry.fields?.nt_audience_id && entry.sys?.id) {
+      audienceEntryIdMap[entry.fields.nt_audience_id] = entry.sys.id;
+    }
+  });
+
+  return { mappedAudiences, audienceEntryIdMap };
+}
